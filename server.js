@@ -7,6 +7,15 @@ const app = express();
 
 // We will loadup the node built in file system helper library to serve JSON files
 const fs = require("fs");
+// Add cors
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
 
 // Configure out express intance with some body parser settings include handling JSON data
 app.use(bodyParser.json());
